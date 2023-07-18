@@ -1,0 +1,13 @@
+﻿{
+    "connectionString": "mongodb://localhost/lite-network",
+    "secret": "mysecretstring",
+    "emailFrom": "smtp.ethereal.email",
+    "smtpOptions": {
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "auth": {
+            "user": "bridget79@ethereal.email",
+            "pass": "ueHEupZTPZfb2hNmty"
+        }
+    }
+}

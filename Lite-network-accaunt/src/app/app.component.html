@@ -1,0 +1,119 @@
+﻿<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+ 
+    <!-- Bootstrap Font Icon CSS -->
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+<div class="app-container" [ngClass]="{ 'bg-light': account }">
+    <!-- main nav -->
+   
+    <nav class="navbar navbar-expand navbar-dark bg-primary px-3 bg-body-tertiary rounded" *ngIf="account" aria-label="Eleventh navbar example">
+      <div class="container-fluid">
+
+        <div>
+          <i class="bi bi-chat-square-quote" style="color: rgb(234, 236, 239); margin-right: 10px;"></i>
+        </div>
+        <div>
+          <a class="navbar-brand" href="#">Lite Network...</a>
+        </div>
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home</a>
+            <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
+            <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
+            <button (click)="logout()" class="btn btn-link nav-item nav-link">Logout</button>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div class="wrapper row" style=" flex-wrap: nowrap;margin: 0;" *ngIf="account"  >
+      <nav class="col-md-2" style="position: sticky;top: 0;padding-top: 10px;">
+         <!--<div>left sidebar</div>-->
+         <link rel="stylesheet" href=
+                "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+                 
+                    <!-- Bootstrap Font Icon CSS -->
+                    <link rel="stylesheet" href=
+                "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+        <div class="  bg-light" style="width: 280px;">
+          <img src="https://github.com/mdo.png"  alt="" width="132" height="132" class="rounded-circle me-2"> 
+          <br>
+          <br>
+          <p *ngIf="account">
+                <strong>First Name: </strong>{{account.firstName}}<br />
+                <strong>Last Name: </strong>{{account.lastName}}<br />
+                
+        </div>  
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+         
+         <ul class="nav nav-pills flex-column mb-auto">
+           <li>
+            <a routerLink="update" class="nav-link link-body-emphasis">
+                <i class="bi bi-person-circle" style="color:rgba(var(--bs-primary-rgb)); margin-right: 10px;"></i>
+                Profile          
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+                <i class="bi bi-house" style="color:rgba(var(--bs-primary-rgb)); margin-right: 10px;"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+                <i class="bi bi bi-chat-right-text" style="color:rgba(var(--bs-primary-rgb)); margin-right: 10px;"></i>
+              Chat
+            </a>
+          </li>
+     
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+             <i class="bi bi bi-people" style="color:rgba(var(--bs-primary-rgb)); margin-right: 10px;"></i>
+             Friends
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+             <i class="bi bi bi-images" style="color:rgba(var(--bs-primary-rgb)); margin-right: 10px;"></i>
+              Images
+             </a>
+           </li>
+          <hr>
+     
+        </ul>
+    </div>
+
+      </nav>
+      <main class="col-md-10">
+         <!-- <div>main content</div>-->
+          <router-outlet name="subnav"></router-outlet>
+          <!-- global alert -->
+          <alert></alert>
+           <!-- main router outlet -->
+          <router-outlet></router-outlet>
+     </main>
+     
+   </div>
+   <div *ngIf="!account">
+    <router-outlet name="subnav"></router-outlet>
+    <!-- global alert -->
+    <alert></alert>
+     <!-- main router outlet -->
+    <router-outlet></router-outlet>
+           
+   </div>
+    <!-- subnav router outlet --> 
+   
+  
+</div>
